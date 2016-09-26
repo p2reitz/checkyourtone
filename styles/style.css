@@ -1,0 +1,51 @@
+.home {
+  width: 100%;
+  height: 50rem;
+  background-color: black;
+  text-align: center;
+  border: 5px solid green;
+
+}
+#title {
+  font-family: sans-serif;
+  color:white;
+  font-size:10rem;
+  margin-bottom:0;
+}
+
+.homePageButtons {
+  height: 3rem;
+  width: 6rem;
+  float: right;
+  border: 5px solid black;
+  background-color: black;
+  color: white;
+}
+
+img {
+  height: 30rem;
+  width: 60rem;
+  margin-left: 5rem;
+}
+
+.signUpBox {
+  border: 5px solid blue;
+  width: 40rem;
+  height: 30rem;
+  display: block;
+  margin: auto;
+  font-size: 3rem;
+}
+
+.header {
+  background-color: black;
+  color: white;
+}
+
+.highlighted {
+  background-color: grey;
+}
+
+span {
+  color: red;
+}

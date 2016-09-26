@@ -1,0 +1,8 @@
+<div>
+  <a href="#/"><h1 style="font-family:arial;">Check Your Tone</h1></a>
+  <form ng-submit="TO.tone(TO.email)">
+    <textarea style="height:10rem;width:40rem;" type="text" name="email-form" ng-model="TO.email" placeholder="Please put the email here"></textarea><br>
+    <input type="submit">
+  </form>
+  <waiting-for-results ng-show="TO.result.value"></waiting-for-results>
+</div>

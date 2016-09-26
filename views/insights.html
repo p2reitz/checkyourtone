@@ -1,0 +1,9 @@
+<div>
+  <a href="#/"><h1>Personality Tester and Tone Checker</h1></a>
+  <form ng-submit="IN.insights(IN.text)">
+    <textarea style="width:40rem;height:10rem;" type="text" name="text-form" ng-model="IN.text" placeholder="Please put text here"></textarea><br>
+    <input type="submit">
+  </form>
+  <waiting-for-results ng-show="IN.inResult.value"></waiting-for-results>
+  <results-insights ng-show="IN.docInsight.value"></results-insights>
+</div>
