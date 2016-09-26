@@ -10,12 +10,12 @@ app.config(function($routeProvider) {
         templateUrl: './views/insights.html',
         controller: 'InsightsController as IN'
       })
-      .when('/sign_up', {
-        templateUrl: './views/sign_up.html',
+      .when('/signup', {
+        templateUrl: './views/signup.html',
         controller: 'SignUpController as SUC'
       })
-      .when('/sign_in', {
-        templateUrl: './views/sign_in.html',
+      .when('/signin', {
+        templateUrl: './views/signin.html',
         controller: 'SignInController as SIC'
       })
       .when('/tone', {

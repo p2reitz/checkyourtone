@@ -2,7 +2,7 @@
 
 app.service('hostURL', [function() {
     var sv = this;
-    var development = true;
+    var development = false;
     sv.getURL = function() {
         if (development === true) {
             return "http://localhost:3000";
@@ -41,7 +41,7 @@ app.service('toneService', ['$http', 'hostURL', '$location', function($http, hos
 
 
     sv.watson = {
-      value: {}
+        value: {}
     };
     sv.sentences = [];
     //sv.scores = [];
@@ -119,7 +119,7 @@ app.service('resultsService', ['toneService', function(toneService) {
     var sv = this;
 
     sv.switchButton = {
-      value: false
+        value: false
     };
 
     sv.tones = toneService.tones;
@@ -164,9 +164,9 @@ app.service('resultsService', ['toneService', function(toneService) {
     };
 
     sv.findWord = function(word, email) {
-      console.log('word: ', word);
-      console.log('email: ', email);
-      sv.savedWord = word;
+        console.log('word: ', word);
+        console.log('email: ', email);
+        sv.savedWord = word;
         var newWord = word.toString();
         var splitEmail = email.replace(/[\r\n]/g, ' ');
         //console.log(splitEmail);
@@ -209,17 +209,17 @@ app.service('resultsService', ['toneService', function(toneService) {
         console.log('sv.scores: ', sv.scores);
     };
 
-    sv.switchWords = function(email, replace){
+    sv.switchWords = function(email, replace) {
         var newWord = sv.savedWord;
         var splitEmail = email.replace(/[\r\n]/g, ' ');
         var splitEmailTwo = splitEmail.replace(/[\(\)]/g, '');
         var splitEmailThree = splitEmailTwo.split(' ');
-        for(var i = 0; i < splitEmailThree.length; i++) {
-          if (newWord === splitEmailThree[i] || newWord.toLowerCase() === splitEmailThree[i]) {
-              sv.newEmailTwo.value.push(replace);
-          } else {
-              sv.newEmailTwo.value.push(splitEmailThree[i]);
-          }
+        for (var i = 0; i < splitEmailThree.length; i++) {
+            if (newWord === splitEmailThree[i] || newWord.toLowerCase() === splitEmailThree[i]) {
+                sv.newEmailTwo.value.push(replace);
+            } else {
+                sv.newEmailTwo.value.push(splitEmailThree[i]);
+            }
         }
         sv.newEmailThree.value = sv.newEmailTwo.value.toString().replace(/[\,]/g, ' ');
         sv.switchButton.value = false;
@@ -234,7 +234,7 @@ app.service('signUpService', ['$http', 'hostURL', '$window', '$location', functi
 
     sv.signUp = function(first_name, last_name, email, password, password2) {
         if (password === password2) {
-            return $http.post(hostURL.getURL() + '/signup', {
+            $http.post(hostURL.getURL() + '/signup', {
                     first_name: first_name,
                     last_name: last_name,
                     email: email,
@@ -263,12 +263,12 @@ app.service('signInService', ['$http', 'hostURL', '$window', '$location', functi
 
     sv.signIn = function(email, password) {
         console.log('email, password: ', email, password);
-         $http.post(hostURL.getURL() + '/signIn', {
+        $http.post(hostURL.getURL() + '/signIn', {
                 email: email,
                 password: password
             })
             .then(function(response) {
-              console.log('response: ', response);
+                console.log('response: ', response);
                 $window.localStorage.token = response.data.token;
                 $location.path('/tone');
             })
