@@ -1,8 +1,8 @@
 <div>
-  <a href="#/"><h1>Tone Checker</h1></a>
+  <a href="#/"><h1>Check Your Tone</h1></a>
   <form ng-submit="SIC.signIn(SIC.email, SIC.password)">
-    <input type="email" ng-model="SIC.email" placeholder="email">
-    <input type="password" ng-model="SIC.password" placeholder="password">
+    <input type="email" ng-model="SIC.email" ng-required="true" placeholder="email">
+    <input type="password" ng-model="SIC.password" ng-required="true" placeholder="password">
     <input type="submit">
   </form>
   <div>

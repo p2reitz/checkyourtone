@@ -1,15 +1,15 @@
 <div>
-  <div class="header"><a href="#/"><h1 style="padding:2rem;font-size:3rem;">Tone Checker</h1></a>
+  <div class="header"><a href="#/"><h1 style="padding:2rem;font-size:3rem;">Check Your Tone</h1></a>
   </div>
   <div style="text-align:center;background-color:grey;">
 
   <div class="signUpBox">
   <form ng-submit="SUC.signUp(SUC.first_name, SUC.last_name, SUC.email, SUC.password, SUC.password2)">
-    <input type="text" name="first_name" ng-model="SUC.first_name" placeholder="first name"><br>
-    <input type="text" name="last_name" ng-model="SUC.last_name" placeholder="last name"><br>
-    <input type="email" name="email" ng-model="SUC.email" placeholder="email"><br>
-    <input type="password" name="password" ng-model="SUC.password" placeholder="password"><br>
-    <input type="password" name="password2" ng-model="SUC.password2" placeholder="confirm password"><br>
+    <input type="text" name="first_name" ng-model="SUC.first_name" ng-required="true" placeholder="first name"><br>
+    <input type="text" name="last_name" ng-model="SUC.last_name" ng-required="true" placeholder="last name"><br>
+    <input type="email" name="email" ng-model="SUC.email" ng-required="true" placeholder="email"><br>
+    <input type="password" name="password" ng-model="SUC.password" ng-required="true" placeholder="password"><br>
+    <input type="password" name="password2" ng-model="SUC.password2" ng-required="true" placeholder="confirm password"><br>
     <input type="submit">
   </form>
 </div>

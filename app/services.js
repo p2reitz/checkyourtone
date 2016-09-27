@@ -234,7 +234,7 @@ app.service('signUpService', ['$http', 'hostURL', '$window', '$location', functi
 
     sv.signUp = function(first_name, last_name, email, password, password2) {
         if (password === password2) {
-            $http.post(hostURL.getURL() + '/signup', {
+            return $http.post(hostURL.getURL() + '/signup', {
                     first_name: first_name,
                     last_name: last_name,
                     email: email,
