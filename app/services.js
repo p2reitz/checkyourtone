@@ -99,6 +99,7 @@ app.service('toneService', ['$http', 'hostURL', '$location', function($http, hos
                 sv.result.value = false;
 
                 sv.watson.value = data.data;
+                //sv.toneSelector(0,0);
                 //console.log('data.data: ', data.data);
                 //sv.email.value = text;
                 //console.log('text: ', text);

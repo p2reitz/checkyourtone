@@ -1,11 +1,22 @@
-<div>
-  <a href="#/"><h1>Check Your Tone</h1></a>
-  <form ng-submit="SIC.signIn(SIC.email, SIC.password)">
-    <input type="email" ng-model="SIC.email" ng-required="true" placeholder="email">
-    <input type="password" ng-model="SIC.password" ng-required="true" placeholder="password">
-    <input type="submit">
-  </form>
-  <div>
-    <a href="#/newPassword" ng-click="forgotPasswordChange()"><p>Forgot Password?</p></a>
-  </div>
+<div class="signin">
+    <ul class="head1">
+        <li class="head"><a href="#/signup">Sign up</a></li>
+        <li class="head" style="float:left;"><a href="#/">Check Your Tone</a></li>
+    </ul>
+    <div style="text-align:center;padding:5em 0;width:30em;margin:auto;">
+        <div style="text-align:center;margin-top:5em;padding:3em;">
+            <form ng-submit="SIC.signIn(SIC.email, SIC.password)">
+                <input class="signUpBox" type="email" ng-model="SIC.email" ng-required="true" placeholder="email">
+                <br>
+                <input class="signUpBox" type="password" ng-model="SIC.password" ng-required="true" placeholder="password">
+                <br>
+                <input class="signUpBox2" type="submit">
+            </form>
+            <div style="margin-top:2em;">
+                <a href="#/newPassword" ng-click="forgotPasswordChange()">
+                    <p style="color:rgb(189,178,86)">Forgot Password?</p>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>

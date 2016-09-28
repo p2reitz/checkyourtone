@@ -1,40 +1,178 @@
 .home {
   width: 100%;
-  height: 50rem;
-  background-color: black;
+  height: 100%;
+  background-image: url("../images/background.jpg");
   text-align: center;
-  border: 5px solid green;
-
+  margin-top: 30em;
 }
+
+h3 {
+  text-decoration: underline;
+}
+
+#opening {
+  height:40em;
+  width: 40em;
+  border: 2px solid black;
+  display: block;
+  margin: auto;
+}
+
+.signin {
+  background-image: url("../images/background.jpg");
+  width: 100%;
+  height: 70em;
+}
+
+.signinform {
+  height:40em;
+  width: 40em;
+  padding: 20em 0;
+  display: block;
+  margin: auto;
+}
+
+.signininput {
+  width: 9em;
+  height: 1.5em;
+  font-size: 1.5em;
+  margin: auto;
+}
+
+.signininput2 {
+  width: 6em;
+  height: 1.5em;
+  font-size: 1.5em;
+  margin: auto;
+}
+
+.story {
+  color: white;
+  text-align: left;
+  padding: 2em;
+  margin: auto;
+  font-size: 1.2em;
+}
+
+body {
+  margin: 0;
+}
+
 #title {
-  font-family: sans-serif;
+  font-family: Georgia;
   color:white;
   font-size:10rem;
   margin-bottom:0;
+  padding-top: 2em;
+  margin-top: -5em;
+
 }
 
-.homePageButtons {
-  height: 3rem;
-  width: 6rem;
-  float: right;
-  border: 5px solid black;
-  background-color: black;
+.info{
+  height: 30em;
+  width: 100%;
+  background-color: transparent;;
+}
+
+.info2 {
+  height: 30em;
+  width: 100%;
+  background-color: grey;
+}
+.head1 {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    opacity: .9;
+}
+
+.head {
+  float:right;
+  color: white;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  margin-right: 2em;
+}
+
+.head a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.head a:hover:not(.active) {
+    background-color: #111;
+    color: white;
+    text-decoration: none;
+}
+
+.head a:visited {
   color: white;
 }
 
-img {
+
+
+.imageHome {
+  border-radius: 50%;
   height: 30rem;
   width: 60rem;
-  margin-left: 5rem;
+  position: fixed;
+  left: 30%;
+  display: block;
+  margin: auto;
+  z-index: -1;
+}
+
+.imageWait {
+  height: 30rem;
+  width: 30rem;
+  position: fixed;
+  left: 35em;
+  top: 22em;
+  border-radius: 50%;
+  display: block;
+  margin: auto;
+  z-index: 1;
+  background-color: transparent;
+}
+
+.signup{
+  background-image: url("../images/background.jpg");
+  width: 100%;
+  height: 70em;
+}
+
+.toneform {
+  background-image: url("../images/background.jpg");
+  width: 100%;
+  height: 70em;
 }
 
 .signUpBox {
-  border: 5px solid blue;
-  width: 40rem;
-  height: 30rem;
+  width: 9em;
+  height: 1.5em;
   display: block;
   margin: auto;
-  font-size: 3rem;
+  font-size: 1.5em;
+}
+
+.signUpBox2 {
+  width: 6em;
+  height: 1.5em;
+  display: block;
+  margin: auto;
+  font-size: 1.5em;
+  background-color: rgb(0,138,255);
+  color: white;
+  border-radius: .2em;
 }
 
 .header {
@@ -43,7 +181,7 @@ img {
 }
 
 .highlighted {
-  background-color: grey;
+  background-color: rgb(180,180,180);
 }
 
 span {

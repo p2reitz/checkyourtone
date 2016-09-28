@@ -1,17 +1,23 @@
-<div>
-  <div class="header"><a href="#/"><h1 style="padding:2rem;font-size:3rem;">Check Your Tone</h1></a>
-  </div>
-  <div style="text-align:center;background-color:grey;">
-
-  <div class="signUpBox">
-  <form ng-submit="SUC.signUp(SUC.first_name, SUC.last_name, SUC.email, SUC.password, SUC.password2)">
-    <input type="text" name="first_name" ng-model="SUC.first_name" ng-required="true" placeholder="first name"><br>
-    <input type="text" name="last_name" ng-model="SUC.last_name" ng-required="true" placeholder="last name"><br>
-    <input type="email" name="email" ng-model="SUC.email" ng-required="true" placeholder="email"><br>
-    <input type="password" name="password" ng-model="SUC.password" ng-required="true" placeholder="password"><br>
-    <input type="password" name="password2" ng-model="SUC.password2" ng-required="true" placeholder="confirm password"><br>
-    <input type="submit">
-  </form>
-</div>
-</div>
+<div class="signup">
+    <ul class="head1">
+        <li class="head"><a href="#/signin">Log in</a></li>
+        <li class="head" style="float:left;"><a href="#/">Check Your Tone</a></li>
+    </ul>
+    <div style="text-align:center;padding:5em 0;width:30em;margin:auto;">
+        <div style="text-align:center;margin-top:5em;padding:3em;">
+            <form ng-submit="SUC.signUp(SUC.first_name, SUC.last_name, SUC.email, SUC.password, SUC.password2)">
+                <input class="signUpBox" type="text" name="first_name" ng-model="SUC.first_name" ng-required="true" placeholder="first name">
+                <br>
+                <input class="signUpBox" type="text" name="last_name" ng-model="SUC.last_name" ng-required="true" placeholder="last name">
+                <br>
+                <input class="signUpBox" type="email" name="email" ng-model="SUC.email" ng-required="true" placeholder="email">
+                <br>
+                <input class="signUpBox" type="password" name="password" ng-model="SUC.password" ng-required="true" placeholder="password">
+                <br>
+                <input class="signUpBox" type="password" name="password2" ng-model="SUC.password2" ng-required="true" placeholder="confirm password">
+                <br>
+                <input class="signUpBox2" type="submit">
+            </form>
+        </div>
+    </div>
 </div>

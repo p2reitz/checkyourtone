@@ -1,8 +1,13 @@
-<div>
-  <a href="#/"><h1 style="font-family:arial;">Check Your Tone</h1></a>
-  <form ng-submit="TO.tone(TO.email)">
-    <textarea style="height:10rem;width:40rem;" type="text" name="email-form" ng-model="TO.email" placeholder="Please put the email here"></textarea><br>
-    <input type="submit">
+<div class="toneform">
+  <ul class="head1">
+    <li class="head"><a href="#/" ng-click="HC.logOut()">Log out</a></li>
+    <li class="head" style="float:left;"><a href="#/tone" style="text-decoration:none;">Check Your Tone</a></li>
+  </ul>
+  <div style="padding:5em 0;margin:auto;width:75%;margin-top4em;">
+  <form style="padding:2em 0;margin:auto;width:80%;" ng-submit="TO.tone(TO.email)">
+    <textarea style="height:15em;width:60em;" type="text" name="email-form" ng-model="TO.email" placeholder="Please put your text here"></textarea><br>
+    <input class="signUpBox2" style="height:2em;float:left;border-radius:.5em;" type="submit">
   </form>
+</div>
   <waiting-for-results ng-show="TO.result.value"></waiting-for-results>
 </div>
