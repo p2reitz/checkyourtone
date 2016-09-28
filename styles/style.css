@@ -10,6 +10,10 @@ h3 {
   text-decoration: underline;
 }
 
+.dropdown {
+  background-color: grey;
+}
+
 #opening {
   height:40em;
   width: 40em;
@@ -49,7 +53,7 @@ h3 {
 .story {
   color: white;
   text-align: left;
-  padding: 2em;
+  padding: 1.5em;
   margin: auto;
   font-size: 1.2em;
 }
@@ -162,6 +166,14 @@ body {
   display: block;
   margin: auto;
   font-size: 1.5em;
+}
+
+a:link, a:visited {
+  color: black;
+}
+
+a:hover {
+  color: rgb(220,200,200);
 }
 
 .signUpBox2 {

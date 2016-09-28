@@ -1,34 +1,35 @@
-<div style="background-color:white;height:100em;">
+<div style="background-color:white;height:150em;">
     <ul class="head1">
         <li class="head"><a href="#/" ng-click="HC.logOut()">Log out</a></li>
         <li class="head" style="float:left;"><a href="#/tone">Check Your Tone</a></li>
     </ul>
     <div style="width:100%;padding-top:5em;border:2px solid black;">
-        <h1 style="font-size:3em;">Document Level</h1>
+        <h1 style="font-size:4em;font-family:Sans-sarif;font-weight:bold;margin-left:1em;">Document Level</h1>
         <hr>
-        <p style="font-size:1.2em;" ng-show="RC.changedEmail.value">{{ RC.email }}</p>
-        <p style="font-size:1.2em;" ng-show="RC.changedEmailOne.value" ng-bind-html="RC.newEmailOne.value"></p>
-        <p style="font-size:1.2em;" ng-show="RC.changedEmailTwo.value">{{ RC.newEmailThree.value }}</p>
+        <p style="font-size:1.2em;font-family:Sarif;padding:2em;" ng-show="RC.changedEmail.value">{{ RC.email }}</p>
+        <p style="font-size:1.2em;font-family:Sarif;" ng-show="RC.changedEmailOne.value" ng-bind-html="RC.newEmailOne.value"></p>
+        <p style="font-size:1.2em;font-family:Sarif;" ng-show="RC.changedEmailTwo.value">{{ RC.newEmailThree.value }}</p>
+        <re-check ng-show="RC.reCheck.value"></re-check>
     </div>
     <div style="width:100%;height:30em;">
         <div style="height:25em;width:30%;float:left;text-align:center;margin:2em;background-color:rgb(245,245,245);">
             <h3 title="Emotional tone is inferred from different types of emotions and feelings that people express in their language. For each of these emotions, the service outputs a score that lies between 0 to 100% that indicates the probability that the emotion came across in the text. In this table, the low value describes the lowest a score a sentence or document can receive and can still be considered to contain that emotion. The high value describes when the sentence or document has a high probability of belonging to that emotion.">
     Emotional Tone</h3>
-            <h4 title="Evoked due to injustice, conflict, humiliation, negligence or betrayal. If anger is active, the individual attacks the target, verbally or physically. If anger is passive, the person silently sulks and feels tension and hostility." ng-click="goAnger = !goAnger">
-    Anger: {{ RC.tones.anger * 100 | number:1 }}%</h4>
+            <h4 title="Evoked due to injustice, conflict, humiliation, negligence or betrayal. If anger is active, the individual attacks the target, verbally or physically. If anger is passive, the person silently sulks and feels tension and hostility." ng-click="goAnger = !goAnger"><a>
+    Anger: {{ RC.tones.anger * 100 | number:1 }}%</a></h4>
             <div style="height:1em;width:60%;background-color:rgb(200,200,200);margin:auto;">
-                <div style="z-index:1;background-color:red;height:1em;width:90%;"></div>
-                <div style="background-color:white;" ng-show="goAnger">
-                    <div ng-click="RC.findWord('We', RC.email)">We</div>
-                    <div ng-click="RC.findWord('Angry', RC.email)">angry</div>
-                    <div ng-click="RC.findWord('Stupid', RC.email)">stupid</div>
+                <div style="z-index:1;background-color:red;height:1em;width:{{ RC.tones.anger * 100 }}%;"></div>
+                <div class="dropdown" style="background-color:white;" ng-show="goAnger">
+                    <div ng-click="RC.findWord('Disappointing', RC.email)">Disappointing</div>
+                    <div ng-click="RC.findWord('Difficult', RC.email)">Difficult</div>
+                    <div ng-click="RC.findWord('Blame', RC.email)">Blame</div>
                     <switch ng-show="RC.switchButton.value"></switch>
                 </div>
             </div>
-            <h4 title="An emotional response of revulsion to something considered offensive or unpleasant. It is a sensation that refers to something revolting." ng-click="goDisgust = !goDisgust">
-    Disgust: {{ RC.tones.disgust * 100 | number:1 }}%</h4>
+            <h4 title="An emotional response of revulsion to something considered offensive or unpleasant. It is a sensation that refers to something revolting." ng-click="goDisgust = !goDisgust"><a>
+    Disgust: {{ RC.tones.disgust * 100 | number:1 }}%</a></h4>
             <div style="height:1em;width:60%;background-color:rgb(200,200,200);margin:auto;">
-                <div style="z-index:1;background-color:orange;height:1em;width:10%;"></div>
+                <div style="z-index:1;background-color:purple;height:1em;width:{{ RC.tones.disgust * 100 }}%;"></div>
                 <div style="background-color:white;" ng-show="goDisgust">
                     <div ng-click="RC.findWord('Disgust', RC.email)">Disgust</div>
                     <div ng-click="RC.findWord('Angry', RC.email)">Disgust</div>
@@ -36,10 +37,10 @@
                     <switch ng-show="RC.switchButton.value"></switch>
                 </div>
             </div>
-            <h4 title="A response to impending danger. It is a survival mechanism that is a reaction to some negative stimulus. It may be a mild caution or an extreme phobia." ng-click="goFear = !goFear">
-    Fear: {{ RC.tones.fear * 100 | number:1 }}%</h4>
+            <h4 title="A response to impending danger. It is a survival mechanism that is a reaction to some negative stimulus. It may be a mild caution or an extreme phobia." ng-click="goFear = !goFear"><a>
+    Fear: {{ RC.tones.fear * 100 | number:1 }}%</a></h4>
             <div style="height:1em;width:60%;background-color:rgb(200,200,200);margin:auto;">
-                <div style="z-index:1;background-color:black;height:1em;width:30%;"></div>
+                <div style="z-index:1;background-color:black;height:1em;width:{{ RC.tones.fear * 100 }}%;"></div>
                 <div style="background-color:white;" ng-show="goFear">
                     <div ng-click="RC.findWord('We', RC.email)">Fear</div>
                     <div ng-click="RC.findWord('Angry', RC.email)">Fear</div>
@@ -47,10 +48,10 @@
                     <switch ng-show="RC.switchButton.value"></switch>
                 </div>
             </div>
-            <h4 title="Joy or happiness has shades of enjoyment, satisfaction and pleasure. There is a sense of well-being, inner peace, love, safety and contentment." ng-click="goJoy = !goJoy">
-    Joy: {{ RC.tones.joy * 100 | number:1 }}%</h4>
+            <h4 title="Joy or happiness has shades of enjoyment, satisfaction and pleasure. There is a sense of well-being, inner peace, love, safety and contentment." ng-click="goJoy = !goJoy"><a>
+    Joy: {{ RC.tones.joy * 100 | number:1 }}%</a></h4>
             <div style="height:1em;width:60%;background-color:rgb(200,200,200);margin:auto;">
-                <div style="z-index:1;background-color:yellow;height:1em;width:60%;"></div>
+                <div style="z-index:1;background-color:yellow;height:1em;width:{{ RC.tones.joy * 100 }}%;"></div>
                 <div style="background-color:white;" ng-show="goJoy">
                     <div ng-click="RC.findWord('We', RC.email)">Joy</div>
                     <div ng-click="RC.findWord('Angry', RC.email)">Joy</div>
@@ -58,10 +59,10 @@
                     <switch ng-show="RC.switchButton.value"></switch>
                 </div>
             </div>
-            <h4 title="Indicates a feeling of loss and disadvantage. When a person can be observed to be quiet, less energetic and withdrawn, it may be inferred that sadness exists." ng-click="goSadness = !goSadness">
-    Sadness: {{ RC.tones.sadness * 100 | number:1 }}%</h4>
+            <h4 title="Indicates a feeling of loss and disadvantage. When a person can be observed to be quiet, less energetic and withdrawn, it may be inferred that sadness exists." ng-click="goSadness = !goSadness"><a>
+    Sadness: {{ RC.tones.sadness * 100 | number:1 }}%</a></h4>
             <div style="height:1em;width:60%;background-color:rgb(200,200,200);margin:auto;">
-                <div style="z-index:1;background-color:blue;height:1em;width:50%;"></div>
+                <div style="z-index:1;background-color:blue;height:1em;width:{{ RC.tones.sadness * 100 }}%;"></div>
                 <div style="background-color:white;" ng-show="goSadness">
                     <div ng-click="RC.findWord('We', RC.email)">Sadness</div>
                     <div ng-click="RC.findWord('Angry', RC.email)">Sadness</div>
@@ -73,10 +74,10 @@
         <div style="height:25em;width:27%;float:left;text-align:center;margin:2em;background-color:rgb(245,245,245);">
             <h3 title="Describes perceived writing style using these categories: analytical style, reasoning style, and confidence. For each of these categories, the service outputs a score from 0 to 100% that indicates tendency toward being perceived as described in the table.">
     Language Style</h3>
-            <h4 title="A person's reasoning and analytical attitude about things. Higher value, more likely to be perceived as intellectual, rational, systematic, emotionless, or impersonal." ng-click="goAnalytical = !goAnalytical">
-    Analytical: {{ RC.tones.analytical * 100 | number:1 }}%</h4>
+            <h4 title="A person's reasoning and analytical attitude about things. Higher value, more likely to be perceived as intellectual, rational, systematic, emotionless, or impersonal." ng-click="goAnalytical = !goAnalytical"><a>
+    Analytical: {{ RC.tones.analytical * 100 | number:1 }}%</a></h4>
             <div style="height:1em;width:60%;background-color:rgb(200,200,200);margin:auto;">
-                <div style="z-index:1;background-color:pink;height:1em;width:90%;"></div>
+                <div style="z-index:1;background-color:rgb(255,160,160);height:1em;width:{{ RC.tones.analytical * 100 }}%;"></div>
                 <div style="background-color:white;" ng-show="goAnalytical">
                     <div ng-click="RC.findWord('We', RC.email)">Analytical</div>
                     <div ng-click="RC.findWord('Angry', RC.email)">Analytical</div>
@@ -84,10 +85,10 @@
                     <switch ng-show="RC.switchButton.value"></switch>
                 </div>
             </div>
-            <h4 title="A persons degree of certainty. Higher value, more likely to be perceived as assured, collected, hopeful, or egotistical." ng-click="goConfident = !goConfident">
-    Confident: {{ RC.tones.confident * 100 | number:1 }}%</h4>
+            <h4 title="A persons degree of certainty. Higher value, more likely to be perceived as assured, collected, hopeful, or egotistical." ng-click="goConfident = !goConfident"><a>
+    Confident: {{ RC.tones.confident * 100 | number:1 }}%</a></h4>
             <div style="height:1em;width:60%;background-color:rgb(200,200,200);margin:auto;">
-                <div style="z-index:1;background-color:green;height:1em;width:60%;"></div>
+                <div style="z-index:1;background-color:rgb(255,160,160);height:1em;width:{{ RC.tones.confident * 100 }}%;"></div>
                 <div style="background-color:white;" ng-show="goConfident">
                     <div ng-click="RC.findWord('We', RC.email)">Confident</div>
                     <div ng-click="RC.findWord('Angry', RC.email)">Confident</div>
@@ -95,10 +96,10 @@
                     <switch ng-show="RC.switchButton.value"></switch>
                 </div>
             </div>
-            <h4 title="A persons degree of inhibition. Higher value, more likely to be perceived as questionable, doubtful, limited, or debatable." ng-click="goTentative = !goTentative">
-    Tentative: {{ RC.tones.tentative * 100 | number:1 }}%</h4>
+            <h4 title="A persons degree of inhibition. Higher value, more likely to be perceived as questionable, doubtful, limited, or debatable." ng-click="goTentative = !goTentative"><a>
+    Tentative: {{ RC.tones.tentative * 100 | number:1 }}%</a></h4>
             <div style="height:1em;width:60%;background-color:rgb(200,200,200);margin:auto;">
-                <div style="z-index:1;background-color:lightblue;height:1em;width:90%;"></div>
+                <div style="z-index:1;background-color:rgb(255,160,160);height:1em;width:{{ RC.tones.tentative * 100 }}%;"></div>
                 <div style="background-color:white;" ng-show="goTentative">
                     <div ng-click="RC.findWord('We', RC.email)">Tentative</div>
                     <div ng-click="RC.findWord('Angry', RC.email)">Tentative</div>
@@ -110,10 +111,10 @@
         <div style="height:25em;width:30%;float:left;text-align:center;margin:2em;background-color:rgb(245,245,245);">
             <h3 title="Social tone measures the social tendencies in people's writing. Tone Analyzer responds with analysis on five different social tones: openness, conscientiousness, extraversion, agreeableness, and emotional range (or neuroticism). These five social tones are adopted from the Big-five personality model. For each of these categories, the service outputs a score from 0 to 100% that indicates tendency toward the listed behaviors.">
     Social Tendencies</h3>
-            <h4 title="The extent a person is open to experience a variety of activities." ng-click="goOpenness = !goOpenness">
-    Openness: {{ RC.tones.openness * 100 | number:1 }}%</h4>
+            <h4 title="The extent a person is open to experience a variety of activities." ng-click="goOpenness = !goOpenness"><a>
+    Openness: {{ RC.tones.openness * 100 | number:1 }}%</a></h4>
             <div style="height:1em;width:60%;background-color:rgb(200,200,200);margin:auto;">
-                <div style="z-index:1;background-color:green;height:1em;width:30%;"></div>
+                <div style="z-index:1;background-color:rgb(0,200,200);height:1em;width:{{ RC.tones.openness * 100 }}%;"></div>
                 <div style="background-color:white;" ng-show="goOpenness">
                     <div ng-click="RC.findWord('We', RC.email)">Openness</div>
                     <div ng-click="RC.findWord('Angry', RC.email)">Openness</div>
@@ -121,44 +122,44 @@
                     <switch ng-show="RC.switchButton.value"></switch>
                 </div>
             </div>
-            <h4 title="The tendency to act in an organized or thoughtful way.">
-    Conscientiousness: {{ RC.tones.conscientiousness * 100 | number:1 }}%</h4>
+            <h4 title="The tendency to act in an organized or thoughtful way." ng-click="goConscientiousness = !goConscientiousness"><a>
+    Conscientiousness: {{ RC.tones.conscientiousness * 100 | number:1 }}%</a></h4>
             <div style="height:1em;width:60%;background-color:rgb(200,200,200);margin:auto;">
-                <div style="z-index:1;background-color:lightblue;height:1em;width:90%;"></div>
-                <div style="background-color:white;" ng-show="goTentative">
+                <div style="z-index:1;background-color:rgb(0,200,200);height:1em;width:{{ RC.tones.conscientiousness * 100 }}%;"></div>
+                <div style="background-color:white;" ng-show="goConscientiousness">
                     <div ng-click="RC.findWord('We', RC.email)">Tentative</div>
                     <div ng-click="RC.findWord('Angry', RC.email)">Tentative</div>
                     <div ng-click="RC.findWord('Stupid', RC.email)">Tentative</div>
                     <switch ng-show="RC.switchButton.value"></switch>
                 </div>
             </div>
-            <h4 title="The tendency to seek stimulation in the company of others.">
-    Extraversion: {{ RC.tones.extraversion * 100 | number:1 }}%</h4>
+            <h4 title="The tendency to seek stimulation in the company of others." ng-click="goExtraversion = !goExtraversion"><a>
+    Extraversion: {{ RC.tones.extraversion * 100 | number:1 }}%</a></h4>
             <div style="height:1em;width:60%;background-color:rgb(200,200,200);margin:auto;">
-                <div style="z-index:1;background-color:blue;height:1em;width:90%;"></div>
-                <div style="background-color:white;" ng-show="goTentative">
+                <div style="z-index:1;background-color:rgb(0,200,200);height:1em;width:{{ RC.tones.extraversion * 100 }}%;"></div>
+                <div style="background-color:white;" ng-show="goExtraversion">
                     <div ng-click="RC.findWord('We', RC.email)">Tentative</div>
                     <div ng-click="RC.findWord('Angry', RC.email)">Tentative</div>
                     <div ng-click="RC.findWord('Stupid', RC.email)">Tentative</div>
                     <switch ng-show="RC.switchButton.value"></switch>
                 </div>
             </div>
-            <h4 title="The tendency to be compassionate and cooperative towards others.">
-    Agreeableness: {{ RC.tones.agreeableness * 100 | number:1 }}%</h4>
+            <h4 title="The tendency to be compassionate and cooperative towards others." ng-click="goAgreeableness = !goAgreeableness"><a>
+    Agreeableness: {{ RC.tones.agreeableness * 100 | number:1 }}%</a></h4>
             <div style="height:1em;width:60%;background-color:rgb(200,200,200);margin:auto;">
-                <div style="z-index:1;background-color:pink;height:1em;width:90%;"></div>
-                <div style="background-color:white;" ng-show="goTentative">
+                <div style="z-index:1;background-color:rgb(0,200,200);height:1em;width:{{ RC.tones.agreeableness * 100 }}%;"></div>
+                <div style="background-color:white;" ng-show="goAgreeableness">
                     <div ng-click="RC.findWord('We', RC.email)">Tentative</div>
                     <div ng-click="RC.findWord('Angry', RC.email)">Tentative</div>
                     <div ng-click="RC.findWord('Stupid', RC.email)">Tentative</div>
                     <switch ng-show="RC.switchButton.value"></switch>
                 </div>
             </div>
-            <h4 title="The extent a person's emotion is sensitive to the environment.">
-    Emotional Range: {{ RC.tones.emotionalrange * 100 | number:1 }}%</h4>
+            <h4 title="The extent a person's emotion is sensitive to the environment." ng-click="goEmotionalRange = !goEmotionalRange"><a>
+    Emotional Range: {{ RC.tones.emotionalrange * 100 | number:1 }}%</a></h4>
             <div style="height:1em;width:60%;background-color:rgb(200,200,200);margin:auto;">
-                <div style="z-index:1;background-color:yellow;height:1em;width:90%;"></div>
-                <div style="background-color:white;" ng-show="goTentative">
+                <div style="z-index:1;background-color:rgb(0,200,200);height:1em;width:{{ RC.tones.emotionalrange * 100 }}%;"></div>
+                <div style="background-color:white;" ng-show="goEmotionalRange">
                     <div ng-click="RC.findWord('We', RC.email)">Tentative</div>
                     <div ng-click="RC.findWord('Angry', RC.email)">Tentative</div>
                     <div ng-click="RC.findWord('Stupid', RC.email)">Tentative</div>
@@ -172,14 +173,14 @@
         <div style="width:100%;height:8em;">
             <ul style="list-style-type: none;">
                 <div style="float:left;height:5em;width:40%;">
-                    <li style="font-size:3em;float:left;">Sentence Level</li>
+                    <li style="font-size:4em;float:left;font-family:Sans-sarif;font-weight:bold;">Sentence Level</li>
                 </div>
                 <div style="float:right;height:7em;width:28%;">
                     <div>
                         <li style="float:left;font-size:1.5em;margin-right:4em;">Scale: {{ RC.guageName.value }}</li>
                     </div>
-                    <div style="float:left;height:2.5em;width:60%;background-color:red;margin:auto;border:2px solid black;">
-                        <div style="z-index:1;background-color:pink;height:100%;width:75%;">
+                    <div style="float:left;height:2.5em;width:60%;background-color:{{ RC.scaleColor.value }};margin:auto;border:2px solid black;">
+                        <div style="z-index:1;background-color:{{ RC.scaleColor.value2 }};height:100%;width:75%;">
                             <div style="z-index:2;background-color:rgb(254,255,255);height:100%;width:25%;"></div>
                         </div>
                     </div>
@@ -192,7 +193,7 @@
             </ul>
         </div>
         <hr>
-        <div style="float:left;width:20em;height:39em;margin-left:3em;border:2px solid black;background-color:rgb(245,245,245);">
+        <div style="float:left;width:20em;height:42em;margin-left:3em;background-color:rgb(245,245,245);">
             <ul style="list-style-type:none;float:none;font-size:1.2em;width:90%;padding-top:1em;">
                 <li style="font-weight:bold;font-size:1.7em;float:none;">Emotional Tone</li>
                 <li style="float:none;" ng-class="{highlighted: RC.bgcolor.value === 1 }" ng-click="RC.toneSelector(0, 0, 1, 'Anger'); RC.bgcolor.value=1; RC.guageName.value='Anger'">Anger</li>
@@ -212,7 +213,7 @@
                 <li style="float:none;" ng-class="{highlighted: TO.bgcolor.value === 13 }" ng-click="RC.toneSelector(2, 4, 13, 'Emotional Range'); RC.bgcolor.value=13; RC.guageName.value='Emotional Range'">Emotional Range</li>
             </ul>
         </div>
-        <div style="float:left;height:40em;width:6em;">
+        <div style="float:left;height:40em;width:5em;margin-left:1em;">
             <div ng-repeat="score in RC.scores">
                 <div style="float:none;height:2em;">{{ score.score * 100 | number:1 }}%</div>
             </div>

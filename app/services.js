@@ -104,6 +104,7 @@ app.service('toneService', ['$http', 'hostURL', '$location', function($http, hos
                 //sv.email.value = text;
                 //console.log('text: ', text);
                 $location.path('/results');
+
             })
             .catch(function(err) {
                 console.log(err);
@@ -133,6 +134,11 @@ app.service('resultsService', ['toneService', function(toneService) {
 
     sv.scores = [];
 
+    sv.scaleColor = {
+      value: 'rgb(255,0,0)',
+      value2: 'rgb(255,130,130)'
+    };
+
     sv.bgcolor = {
         value: 1
     };
@@ -154,6 +160,9 @@ app.service('resultsService', ['toneService', function(toneService) {
     sv.changedEmailTwo = {
         value: false
     };
+    sv.reCheck = {
+        value: false
+    };
     sv.newEmail = {
         value: []
     };
@@ -165,19 +174,16 @@ app.service('resultsService', ['toneService', function(toneService) {
     };
 
     sv.findWord = function(word, email) {
-        console.log('word: ', word);
-        console.log('email: ', email);
+        //console.log('word: ', word);
+        //console.log('email: ', email);
         sv.savedWord = word;
         var newWord = word.toString();
         var splitEmail = email.replace(/[\r\n]/g, ' ');
-        //console.log(splitEmail);
         var splitEmailTwo = splitEmail.replace(/[\(\)]/g, '');
-        //console.log(splitEmailTwo);
-        //var splitEmailThree = splitEmail;
         var splitEmailThree = splitEmailTwo.split(' ');
-        console.log('splitEmailThree: ', splitEmailThree);
+        //console.log('splitEmailThree: ', splitEmailThree);
         for (var i = 0; i < splitEmailThree.length; i++) {
-            console.log(word);
+            //console.log(word);
             if (newWord === splitEmailThree[i] || newWord.toLowerCase() === splitEmailThree[i]) {
                 sv.newEmail.value.push('<span style="color:red;">' + splitEmailThree[i] + '</span>');
             } else {
@@ -188,15 +194,15 @@ app.service('resultsService', ['toneService', function(toneService) {
         sv.changedEmail.value = false;
         sv.changedEmailOne.value = true;
         sv.switchButton.value = true;
-        console.log('sv.newEmailOne.value: ', sv.newEmailOne.value.toString());
+        //console.log('sv.newEmailOne.value: ', sv.newEmailOne.value.toString());
     };
 
     sv.toneSelector = function(one, two, three, four) {
         sv.guageName.value = four.toString();
         sv.bgcolor.value = three;
-        console.log('sv.bgcolor: ', sv.bgcolor);
-        console.log(one, two);
-        console.log('sv.watson.value: ', sv.watson.value);
+        //console.log('sv.bgcolor: ', sv.bgcolor);
+        //console.log(one, two);
+        //console.log('sv.watson.value: ', sv.watson.value);
         sv.scores.splice(0, sv.scores.length);
         for (var i = 0; i < sv.watson.value.sentences_tone.length; i++) {
             if (sv.watson.value.sentences_tone[i].tone_categories.length === 0) {
@@ -207,11 +213,17 @@ app.service('resultsService', ['toneService', function(toneService) {
                 sv.scores.push(sv.watson.value.sentences_tone[i].tone_categories[one].tones[two]);
             }
         }
-        console.log('sv.scores: ', sv.scores);
+        //console.log('sv.scores: ', sv.scores);
     };
 
-    sv.switchWords = function(email, replace) {
+    sv.switchWords = function(email) {
+        var replace = '';
         var newWord = sv.savedWord;
+          if(newWord === 'Disappointing'){
+            replace = 'lower';
+          } else {
+            replace = 'unfortunate';
+          }
         var splitEmail = email.replace(/[\r\n]/g, ' ');
         var splitEmailTwo = splitEmail.replace(/[\(\)]/g, '');
         var splitEmailThree = splitEmailTwo.split(' ');
@@ -226,6 +238,7 @@ app.service('resultsService', ['toneService', function(toneService) {
         sv.switchButton.value = false;
         sv.changedEmailOne.value = false;
         sv.changedEmailTwo.value = true;
+        sv.reCheck.value = true;
     };
 
 }]);

@@ -60,6 +60,9 @@ app.controller('ResultsController', ['resultsService', 'toneService', '$sanitize
   vm.switchWords = resultsService.switchWords;
   vm.newEmailTwo = resultsService.newEmailTwo;
   vm.newEmailThree = resultsService.newEmailThree;
+  vm.scaleColor = resultsService.scaleColor;
+  vm.reCheck = resultsService.reCheck;
+  vm.tone = toneService.tone;
 }]);
 
 app.controller('SignUpController', ['signUpService', function(signUpService){

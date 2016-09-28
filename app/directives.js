@@ -11,3 +11,9 @@ app.directive('waitingForResults', function(){
     templateUrl: '../views/templates/waitingForResults.html',
   };
 });
+
+app.directive('reCheck', function(){
+  return {
+    templateUrl: '../views/templates/reCheck.html',
+  };
+});
