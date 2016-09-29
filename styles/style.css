@@ -10,6 +10,29 @@ h3 {
   text-decoration: underline;
 }
 
+.waitingDiv {
+  border-radius: 50%;
+  margin: auto;
+    width: 2em;
+    height: 2em;
+    background-color: rgb(60,60,255);
+    position: relative;
+    -webkit-animation-name: example;
+    -webkit-animation-duration: 8s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+}
+
+@-webkit-keyframes example {
+    0%   {left:-400px; top:0px;}
+    25%  {left:300px; top:0px;}
+    50%  {left:-400px; top:0px;}
+    75%  {left:300px; top:0px;}
+    100% {left:-400px; top:0px;}
+}
+
 .dropdown {
   background-color: grey;
 }
@@ -166,10 +189,6 @@ body {
   display: block;
   margin: auto;
   font-size: 1.5em;
-}
-
-a:link, a:visited {
-  color: black;
 }
 
 a:hover {

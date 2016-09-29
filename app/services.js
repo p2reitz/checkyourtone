@@ -100,7 +100,7 @@ app.service('toneService', ['$http', 'hostURL', '$location', function($http, hos
 
                 sv.watson.value = data.data;
                 //sv.toneSelector(0,0);
-                //console.log('data.data: ', data.data);
+                console.log('data.data: ', data.data);
                 //sv.email.value = text;
                 //console.log('text: ', text);
                 $location.path('/results');
@@ -135,8 +135,8 @@ app.service('resultsService', ['toneService', function(toneService) {
     sv.scores = [];
 
     sv.scaleColor = {
-      value: 'rgb(255,0,0)',
-      value2: 'rgb(255,130,130)'
+      value: 'rgb(145,180,255)',
+      value2: 'rgb(185,220,255)'
     };
 
     sv.bgcolor = {
